@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-nl=-m_*)))s_7^_ow@4=6tj#rk-l4jn=2%uc)3!i@=_*wa-sn1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
@@ -119,6 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
+
+MEDIA_URL= '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -131,3 +135,12 @@ EMAIL_PORT=587
 EMAIL_HOST_USER="2018pcemerohit58@poornima.org"
 EMAIL_HOST_PASSWORD="rohit6474"
 EMAIL_USE_TLS=True
+
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+
+SECURE_HSTS_SECONDS =  3153600
+SECURE_HSTS_PRELOAD= True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
