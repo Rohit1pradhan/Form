@@ -49,6 +49,14 @@
             email : <input type="email" name="email" required> <b></b><span class="formerror">  </span></b>
         </div>
 
+        <div class="formdesign" id="password">
+            password : <input type="password" name="password" required> <b></b><span class="formerror">  </span></b>
+        </div>
+
+        <div class="formdesign" id="password2">
+            conform password : <input type="password" name="password2" required> <b></b><span class="formerror">  </span></b>
+        </div>
+
         <div class="formdesign" id="phone">
             phone : <input type="phone" name="phone" required > <b></b><span class="formerror">  </span></b>
         </div>
@@ -60,6 +68,16 @@
         <input type="submit" class="but">
 
     </form>
+
+    <h1>or if you are register then login by using bello button</h1>
+
+    <form action="http://127.0.0.1:8000/loginpage/"  name="FormLogin" >
+        {% csrf_token %}
+        
+        <input type="submit" value="login" class="but">
+
+    </form>
+
 </body>
 
 <script>

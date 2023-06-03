@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OLD REGISTRATIONS</title>
+    <title>Login</title>
+
+    <style>
+        body{
+            padding: 10px 50px;
+        }
+        .formdesign{
+            font-size: 20px;
+        }
+
+        .formdesign input{
+            width: 50%;
+            padding:  12px 20px;
+            border: 1px solid blue;
+            margin: 14px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .formerror{
+            color: red;
+        }
+
+        .but{
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>all old registrations</h1>
-    <h2>{{olddata}}</h2>
-    
+    <form action="http://127.0.0.1:8000/login/
+" name="myForm" onsubmit="return ValidateForm()" method="post">
+         {% csrf_token %}
+        <div class="formdesign" id="email">
+            name : <input type="email" name="email" required> <b></b><span class="formerror">  </span></b>
+        </div>
+
+        <div class="formdesign" id="password">
+            email : <input type="password" name="password" required> <b></b><span class="formerror">  </span></b>
+        </div>
+
+        <input type="submit" class="but" value="login">
 </body>
-</html>
