@@ -39,17 +39,19 @@ class userRegistrationView(APIView):
     def post(self,request):
         serializer=userserializer(data=request.data)
         if serializer.is_valid():
-            print(1)
             user=serializer.save()
-            print(2)
+            mail=request.data.get('email')
+            send_mail(
+                'Registration Sucessfully',
+                'congratulations you have registre sucessfully',
+                '2018pcemerohit58@poornima.org',
+                [mail],
+                fail_silently=False,
+            )
             token=get_tokens_for_user(user)
-            print(3)
             olddata=User.objects.all()
-            print(4)
             serializer1 = UserSerializer(olddata, many=True)
-            print(5)
             details = {'olddata': serializer1.data}
-            print(6)
             return Response({'msg':details},status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
